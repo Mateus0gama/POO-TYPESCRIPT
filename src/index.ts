@@ -5,20 +5,25 @@ let idade: number;
 let brasileiro: boolean;
 let enderecos: string[]; // Ou let enderecos: Array<string>;
 
-nome = "Will";
-sobrenome = "Smith";
-idade = 43;
+nome = "Mateus";
+sobrenome = "Gama";
+idade = 22;
 brasileiro = false;
 nomecompleto = nome + " " + sobrenome;
 enderecos = ["Rua B, Aracaju", "Rua C, Tobias Barreto"];
 
 let exibirNomeCompleto = function (): void {
-  alert(`O nome completo é: ${nomecompleto}`);
+  console.log(`O nome completo é: ${nomecompleto}`);
+};
+
+let mostrarIdade = function (): void {
+  console.log(`A idade é: ${idade}`);
 };
 
 let recuperaEndereco = function (posicao: number): string {
-  return enderecos[posicao];
+  return enderecos[posicao] ?? "";
 };
 
-exibirNomeCompleto();
-alert(recuperaEndereco(1));
+console.log(exibirNomeCompleto());
+console.log(recuperaEndereco(0));
+console.log(mostrarIdade());
