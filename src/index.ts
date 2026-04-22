@@ -1,29 +1,13 @@
-let nome: string;
-let sobrenome: string;
-let nomecompleto: string;
-let idade: number;
-let brasileiro: boolean;
-let enderecos: string[]; // Ou let enderecos: Array<string>;
+import { Professor } from "./professor";
+import { Pessoa } from "./pessoa";
 
-nome = "Mateus";
-sobrenome = "Gama";
-idade = 22;
-brasileiro = false;
-nomecompleto = nome + " " + sobrenome;
-enderecos = ["Rua B, Aracaju", "Rua C, Tobias Barreto"];
+let Mateus: Pessoa = new Pessoa("Mateus", "Gama", 22, true, [
+  "Rua Pedro Loiola Prata, N186",
+]);
 
-let exibirNomeCompleto = function (): void {
-  console.log(`O nome completo é: ${nomecompleto}`);
-};
+let Diego: Professor = new Professor();
+Diego.nome = "Diego";
+Diego.sobrenome = "Armando";
 
-let mostrarIdade = function (): void {
-  console.log(`A idade é: ${idade}`);
-};
-
-let recuperaEndereco = function (posicao: number): string {
-  return enderecos[posicao] ?? "";
-};
-
-console.log(exibirNomeCompleto());
-console.log(recuperaEndereco(0));
-console.log(mostrarIdade());
+console.log(Mateus.exibirNomeCompleto());
+console.log(Mateus);
