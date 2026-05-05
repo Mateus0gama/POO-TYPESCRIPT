@@ -1,8 +1,8 @@
-import type { Endereco } from "./endereco";
-import { Pessoa } from "./pessoa";
-import type { Projeto } from "./projeto";
+import type { Endereco } from "../endereco/endereco";
+import { Pessoa } from "../pessoa/pessoa";
+import type { IProjeto } from "../projeto/projeto";
 
-class Professor extends Pessoa implements Projeto {
+class Professor extends Pessoa implements IProjeto {
   //atributos de instância
   salario: number;
 

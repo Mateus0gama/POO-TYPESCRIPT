@@ -1,8 +1,8 @@
-import type { Endereco } from "./endereco";
-import { Pessoa } from "./pessoa";
-import type { Projeto } from "./projeto";
+import type { Endereco } from "../endereco/endereco";
+import { Pessoa } from "../pessoa/pessoa";
+import type { IProjeto } from "../projeto/projeto";
 
-class Aluno extends Pessoa implements Projeto {
+class Aluno extends Pessoa implements IProjeto {
   //atributos de instância
   curso: string;
   situacao: SituacacaoAluno;
@@ -28,9 +28,7 @@ class Aluno extends Pessoa implements Projeto {
 
   gerarMatricula(): number {
     let ano: number = new Date().getFullYear();
-    let numero: number = Math.floor(
-      Math.random() * (999999 - 100000 + 1) + 100000,
-    );
+    let numero: number = Math.floor(Math.random() * (9999 - 1000 + 1) + 1000);
     return Number(` ${ano} ${numero}`);
   }
 

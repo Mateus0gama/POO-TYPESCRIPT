@@ -1,4 +1,4 @@
-import { Endereco } from "./endereco";
+import { Endereco } from "../endereco/endereco";
 
 abstract class Pessoa {
   //Atributos de Instância
@@ -41,10 +41,6 @@ abstract class Pessoa {
   //Métodos de instância
   exibirNomeCompleto(): string {
     return `O nome completo é: ${this.nome} ${this.sobrenome}`;
-  }
-
-  recuperaEndereco(posicao: number): string {
-    return this.enderecos[posicao] ?? "";
   }
 
   //Métodos Estáticos

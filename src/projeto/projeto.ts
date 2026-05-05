@@ -1,6 +1,6 @@
-interface Projeto {
+interface IProjeto {
   submeterProjetodePesquisa(): void;
   submeterProjetodeExtensao(): void;
 }
 
-export type { Projeto };
+export type { IProjeto };
