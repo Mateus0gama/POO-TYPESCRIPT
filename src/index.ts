@@ -1,17 +1,31 @@
 import { Pessoa } from "./pessoa";
+import { Aluno, SituacacaoAluno } from "./aluno";
+import { Professor } from "./professor";
 
-let Mateus: Pessoa = new Pessoa("Mateus", "Gama", 22, true, [
-  "Rua Pedro Loiola Prata, N186",
-]);
-let Mariana: Pessoa = new Pessoa("Mariana", "Gama", 20, true, [
-  "Rua Pedro Loiola Prata, N186",
-  "Bairro Horta também mora lá! rs",
-]);
+let mariana: Aluno = new Aluno(
+  "Mariana",
+  "Gama",
+  "Feminio",
+  "0882934234242",
+  20,
+  true,
+  ["Rua C"],
+  "Direito",
+  SituacacaoAluno.ATIVO,
+);
 
-console.log(Mateus.exibirNomeCompleto());
-console.log(Mateus.recuperaEndereco(0));
-console.log(Mateus);
-console.log("---------------------------------------------");
-console.log(Mariana);
-console.log("-------------------------------------------");
-console.log(Pessoa.getquantidadeDePessoas());
+let diego: Professor = new Professor(
+  "Diego",
+  "Armando",
+  "Masculino",
+  "0309234023490",
+  35,
+  true,
+  ["Rua L"],
+  15000,
+);
+
+mariana.submeterProjetodeExtensao();
+console.log(mariana);
+console.log("------------------__");
+console.log(diego);
