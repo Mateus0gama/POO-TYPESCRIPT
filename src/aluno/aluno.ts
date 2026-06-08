@@ -1,11 +1,30 @@
+import type { Curso } from "../curso/curso";
 import type { Endereco } from "../endereco/endereco";
 import { Pessoa } from "../pessoa/pessoa";
 import type { IProjeto } from "../projeto/projeto";
 
 class Aluno extends Pessoa implements IProjeto {
   //atributos de instância
-  curso: string;
-  situacao: SituacacaoAluno;
+
+  private _curso: Curso[] = []; //O Aluno array de cursos
+  private _situacao: SituacacaoAluno = SituacacaoAluno.ATIVO; //Associação Estrutural - Composição - A partir de um atributo (Situação depende de enum-SituaçãodoAluno)
+
+  //Métodos GET E SET
+
+  public get situacao(): SituacacaoAluno {
+    return this._situacao;
+  }
+  public set situacao(value: SituacacaoAluno) {
+    this._situacao = value;
+  }
+
+  public get curso(): Curso[] {
+    return this._curso;
+  }
+
+  public set curso(value: Curso[]) {
+    this._curso = value;
+  }
 
   //método construtor
   constructor(
@@ -16,7 +35,7 @@ class Aluno extends Pessoa implements IProjeto {
     idade: number,
     brasileiro: boolean,
     endereco: Endereco[],
-    curso: string,
+    curso: Curso[],
     situacao: SituacacaoAluno,
   ) {
     super(nome, sobrenome, sexo, CPF, idade, brasileiro, endereco);
@@ -26,18 +45,18 @@ class Aluno extends Pessoa implements IProjeto {
     this.situacao = situacao;
   }
 
-  gerarMatricula(): number {
+  protected gerarMatricula(): number {
     let ano: number = new Date().getFullYear();
     let numero: number = Math.floor(Math.random() * (9999 - 1000 + 1) + 1000);
-    return Number(` ${ano} ${numero}`);
+    return Number(`${ano}${numero}`);
   }
 
-  submeterProjetodePesquisa(): void {
+  public submeterProjetodePesquisa(): void {
     console.log(
       `Isso é um projeto de pesquisa em desenvolvimento por um Aluno!`,
     );
   }
-  submeterProjetodeExtensao(): void {
+  public submeterProjetodeExtensao(): void {
     console.log(
       `Isso é um projeto de extensão em desenovlimento por um Aluno!`,
     );
